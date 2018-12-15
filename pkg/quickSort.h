@@ -39,7 +39,6 @@ void quickSort::sort( std::vector< T > &input ) {
   input = lowerArray;
   input.insert( input.end(),sameArray.begin(),sameArray.end() );
   input.insert( input.end(),upperArray.begin(),upperArray.end() );
-  return;
 }
 
 #endif

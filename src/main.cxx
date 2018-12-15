@@ -1,6 +1,7 @@
 
 #include <iostream>
 #include "../pkg/quickSort.h"
+#include "../pkg/mergeSort.h"
 
 template < class T >
 void print( std::vector<T>& );
@@ -11,13 +12,13 @@ int main() {
 
   TRandom3 rdm( 0 );
 
-  for ( int i=0;i<10;i++ ) {
+  for ( int i=0;i<11;i++ ) {
     arrayInt.push_back( rdm.Integer(20) );
     arrayDouble.push_back( rdm.Rndm() );
   }
 
   print( arrayInt );
-  quickSort::sort( arrayInt );
+  mergeSort::sort( arrayInt );
   print( arrayInt );
 
   std::cout<<std::endl;
