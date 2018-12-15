@@ -20,11 +20,8 @@ quickSort::quickSort() {}
 quickSort::~quickSort() {} 
 
 template <class T>
-void quickSort::sort( std::vector< T > &input ) { input = sortArray( input ); }
-
-template <class T>
-std::vector< T > quickSort::sortArray( const std::vector< T > &input ) {
-  if ( input.size() < 2 ) return input;
+void quickSort::sort( std::vector< T > &input ) {
+  if ( input.size() < 2 ) return;
   std::vector< T > lowerArray;
   std::vector< T > sameArray;
   std::vector< T > upperArray;
@@ -38,13 +35,13 @@ std::vector< T > quickSort::sortArray( const std::vector< T > &input ) {
     else upperArray.push_back( input.at(i) );
   } 
 
-  std::vector< T > sortedLowerArray = sortArray( lowerArray );
-  std::vector< T > sortedUpperArray = sortArray( upperArray );
+  quickSort::sort( lowerArray );
+  quickSort::sort( upperArray );
 
-  std::vector< T > output = sortedLowerArray;
-  output.insert( output.end(),sameArray.begin(),sameArray.end() );
-  output.insert( output.end(),sortedUpperArray.begin(),sortedUpperArray.end() );
-  return output;
+  input = lowerArray;
+  input.insert( input.end(),sameArray.begin(),sameArray.end() );
+  input.insert( input.end(),upperArray.begin(),upperArray.end() );
+  return;
 }
 
 #endif
