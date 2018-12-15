@@ -12,8 +12,6 @@ class quickSort : public sortingAlgs {
 
  private:
   quickSort();
-  template <class T>
-    static std::vector< T > sortArray( const std::vector< T >& );
 };
 
 quickSort::quickSort() {}
