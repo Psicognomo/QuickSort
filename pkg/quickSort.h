@@ -2,12 +2,11 @@
 #ifndef QUICK_SORT_H
 #define QUICK_SORT_H
 
-#include <iostream>
-#include <vector>
-#include "TRandom3.h"
+#include "sortingAlgs.h"
 
-class quickSort {
+class quickSort : public sortingAlgs {
  public:
+  virtual ~quickSort(); 
   template < class T >
     static void sort( std::vector< T >& );
 
@@ -15,14 +14,10 @@ class quickSort {
   quickSort();
   template <class T>
     static std::vector< T > sortArray( const std::vector< T >& );
-
- private:
-  static std::unique_ptr< TRandom3 > m_rdm;
 };
 
-std::unique_ptr< TRandom3 > quickSort::m_rdm( new TRandom3(0) );
-
 quickSort::quickSort() {}
+quickSort::~quickSort() {} 
 
 template <class T>
 void quickSort::sort( std::vector< T > &input ) { input = sortArray( input ); }
