@@ -9,34 +9,22 @@ class quickSort( sortingAlgs ):
     def sort( input ):
         if len( input ) < 2 :
             return
-        
-        lowerArray = []
-        sameArray  = []
-        upperArray = []
 
         index = random.randint( 0,len( input ) - 1 )
         pivot = input[ index ]
-
-        for el in input:
-            if el < pivot:
-                lowerArray.append( el )
-            elif el == pivot:
-                sameArray.append( el )
-            else:
-                upperArray.append( el )
+        
+        lowerArray = [x for x in input if x < pivot]
+        sameArray  = [x for x in input if x == pivot]
+        upperArray = [x for x in input if x > pivot]
 
         quickSort.sort( lowerArray )
         quickSort.sort( upperArray )
+
+        sortedArray = lowerArray + sameArray + upperArray
                 
         indexInput = 0
-        for index in range( 0,len(lowerArray) ):
-            input[indexInput] = lowerArray[index]
-            indexInput += 1
-        for index in range( 0,len(sameArray) ):
-            input[indexInput] = sameArray[index]
-            indexInput += 1
-        for index in range( 0,len(upperArray) ):
-            input[indexInput] = upperArray[index]
+        for index in range( 0,len(sortedArray) ):
+            input[indexInput] = sortedArray[index]
             indexInput += 1
 
 class mergeSort( sortingAlgs ):
